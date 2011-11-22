@@ -1,0 +1,7 @@
+name: disqus-spark
+
+version: 0.0.5
+
+compatibility: 2.0.3
+
+tags: ["comments", "disqus"]
