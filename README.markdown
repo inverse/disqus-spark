@@ -4,18 +4,26 @@ A simple way to incorporate [DISQUS][1] into your CodeIgniter application.
 
 ## Requirements
 
-1. PHP 5.1+
-2. CodeIgniter 2.0+
+1. CodeIgniter
+2. Sparks
 
 ## Documentation
 
 First add your DISQUS shortname (disqus_shortname) to the disqus config file
 	
-    $config['disqus_shortname'] = '';
+    $config['disqus_shortname'] = 'YOUR_SHORTNAME_HERE';
 
-Make sure to set disqus_developer to 0 when deploying live site. 
+***Note:** Make sure to set disqus_developer to 0 when deploying live site.*
 
-### Note
+### Usage 
+
+Add the below code into your view. 
+
+    $this->disqus->get_html();
+	
+This will embed the JavaScript which loads and displays DISQUS on your site.
+
+## Endnote 
 
 This is the first spark that I have made so feel free to give me any feedback/advice/guidance.
 
