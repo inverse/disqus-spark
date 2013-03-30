@@ -2,20 +2,42 @@
 
 class Disqus
 {
+    /*
+     *  Local CI instance    
+     */
     private $CI;
+    /*
+     *  Disqus shortname config item    
+     */
     private $disqus_shortname;
+    /*
+     *  Disqus developer setting    
+     */
     private $disqus_developer;
     
+    /*
+     * Init Disqus library
+     */
     public function Disqus()
     {
         $this->CI =& get_instance();
         
         $this->disqus_shortname = config_item('disqus_shortname');
         $this->disqus_developer = config_item('disqus_developer');
+
+        log_message('debug', 'Disqus library loaded');
     }
 
+    /*
+    * Get Diqsus html
+    */
     public function get_html()
     {
+        // Validate config items
+        if (!in_array($this->disqus_developer, array(0,1)) || strlen($this->disqus_shortname) == 0) {
+            return "Disqus config items not setup correctly, please check library config settings";
+        }
+
         return  "<div id='disqus_thread'></div>
                 <script type='text/javascript'>
     
